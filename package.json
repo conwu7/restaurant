@@ -1,0 +1,26 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "basic restaurant webpage",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conwu7/restaurant.git"
+  },
+  "author": "Clinton Onwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/conwu7/restaurant/issues"
+  },
+  "homepage": "https://github.com/conwu7/restaurant#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}
