@@ -16,21 +16,36 @@ import {menuContent} from "./menu";
     let _currentPage;
     let _contentContainer = document.getElementById("mainContent");
     let _navButtons = Array.from(document.querySelectorAll('nav button'));
+    _loadPages();
     _navButtons.forEach(button => {
         button.addEventListener('click', onNavClick);
     });
-    document.querySelector('#homebtn').click();
-    function switchPage(oldDiv, newDiv) {
-       if (oldDiv) _contentContainer.removeChild(_contentContainer.firstElementChild);
-       _contentContainer.appendChild(newDiv);
+    //load home page by default
+    _currentPage = _buttonMapping.homebtn;
+    document.querySelector('#homebtn').classList.add('activeLink');
+    // document.querySelector('#homebtn').click();
+    function _loadPages() {
+        const keys = Object.keys(_buttonMapping);
+        keys.forEach(key=>{
+            _contentContainer.appendChild(_buttonMapping[key]);
+        })
+    }
+    function _switchTabs(oldDiv, newDiv) {
+        if (oldDiv === newDiv) {return}
+        if (oldDiv) {
+            oldDiv.classList.toggle('notActive');
+        }
+        const bringInActive = setTimeout(()=>{
+            newDiv.classList.toggle('notActive')
+            }, 200);
        _currentPage = newDiv;
     }
     function updateNav(e) {
-        _navButtons.forEach(button=>{button.classList.remove('activeLink')})
+        _navButtons.forEach(button=>{button.classList.remove('activeLink')});
         e.target.classList.add('activeLink');
     }
     function onNavClick(e) {
-        switchPage(_currentPage, _buttonMapping[e.target.id]);
+        _switchTabs(_currentPage, _buttonMapping[e.target.id]);
         updateNav(e);
     }
 })();

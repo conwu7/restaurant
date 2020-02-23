@@ -8,6 +8,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 body {
     text-align: center;
@@ -46,6 +47,28 @@ nav *:hover, .activeLink {
     font-size: 120%;
     color: darkslategray;
     letter-spacing: 2px;
+    overflow-x: hidden;
+}
+.mainContent {
+    max-width: 4000px;
+    position: relative;
+}
+.mainContent>div {
+    min-width: 90vw;
+    vertical-align: top;
+    transition: ease-in-out 750ms;
+}
+.menuPage, .aboutPage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.homePage, .aboutPage, .menuPage {
+    display: inline-block;
+}
+.notActive {
+    transform: translateX(3000px);
 }
 .pictureGrid {
     display: grid;
